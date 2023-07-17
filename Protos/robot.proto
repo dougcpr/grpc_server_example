@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+option csharp_namespace = "GrpcRobot";
+
+package robot;
+
+
+service Robot {
+  // returns robot data
+  rpc ReturnSingleDeviceData (RobotDataRequest) returns (RobotDataReply);
+}
+
+// client facing representation of the robot data
+message RobotDataRequest {
+	string device_id = 1;
+}
+
+message RobotDataReply {
+	string deviceId = 1;
+    string deviceName = 2;
+    string deviceFleet = 3;
+}
